@@ -73,7 +73,7 @@ h1 {
 
 .deck .card.open {
 	transform: rotateY(0);
-	background: #FF8C00;
+	background: #FFBF00;
 	cursor: default;
 	animation-name: flipInY;
 	-webkit-backface-visibility: visible !important;

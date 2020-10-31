@@ -170,10 +170,10 @@ function moveCounter(){
         startTimer();
     }
     // setting rates based on moves
-    if (moves > 16 && moves <= 20){
+    if (moves > 20 && moves <= 27){
         stars[2].style.visibility = "collapse";
     }
-    else if (moves > 20){
+    else if (moves > 27){
         stars[1].style.visibility = "collapse";
         stars[2].style.visibility = "collapse";
     }
