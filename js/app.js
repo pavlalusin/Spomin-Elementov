@@ -8,20 +8,15 @@ document.title = selectedPairs.title;
 // deck of all cards in game
 const deck = document.getElementById("card-deck");
 
-// This is how every card should look like. Just replace {type} and {text}
-// e.g. <li class="card" type="1">Helij</li>
-const cardTemplate = '<li class="card" type="{type}">{text}</li>';
-
-// Insert 10 random pairs into deck with javascript. Types will be just numbers "0", "1", "2",...
-let chosenPairs = selectedPairs.pairs;
+// Shuffle list of pairs and insert first 10 random pairs
+// into deck with javascript. Types will be just numbers "0", "1", "2",...
+let chosenPairs = shuffle(selectedPairs.pairs);
 for (let i = 0; i < 10; i++) {
-    chosenPairs = shuffle(chosenPairs);
-    // pop removes and returns last element from array
-    let pair = chosenPairs.pop();
-    // Insert first element
-    deck.innerHTML += cardTemplate.replace("{text}", pair[0]).replace("{type}", i);
-    // Insert second element
-    deck.innerHTML += cardTemplate.replace("{text}", pair[1]).replace("{type}", i);
+    for (let pair of chosenPairs[i]) { // first and second pair
+        // This HTML definition of a card
+        // e.g. <li class="card" type="1">Helij</li>
+        deck.innerHTML += `<li class="card" type="${i}">${pair}</li>`;
+    }
 }
 
 // cards array holds all cards
