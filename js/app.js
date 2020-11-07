@@ -1,6 +1,9 @@
+// Only deal with chemistry pairs
+const selectedPairs = ALL_PAIRS.kemija;
+
 // Set page title
-document.getElementById("title").innerHTML = ALL_PAIRS.title;
-document.title = ALL_PAIRS.title;
+document.getElementById("title").innerHTML = selectedPairs.title;
+document.title = selectedPairs.title;
 
 // deck of all cards in game
 const deck = document.getElementById("card-deck");
@@ -10,7 +13,7 @@ const deck = document.getElementById("card-deck");
 const cardTemplate = '<li class="card" type="{type}">{text}</li>';
 
 // Insert 10 random pairs into deck with javascript. Types will be just numbers "0", "1", "2",...
-let chosenPairs = ALL_PAIRS.pairs;
+let chosenPairs = selectedPairs.pairs;
 for (let i = 0; i < 10; i++) {
     chosenPairs = shuffle(chosenPairs);
     // pop removes and returns last element from array
@@ -32,7 +35,7 @@ let counter = document.querySelector(".moves");
 // declare variables for star icons and set the correct icon
 const stars = document.getElementsByClassName("star");
 for (let i = 0; i < stars.length; i++) {
-    stars[i].classList.add("fa-" + ALL_PAIRS.score_icon);
+    stars[i].classList.add("fa-" + selectedPairs.score_icon);
 }
 
 // declaring variable of matchedCards
