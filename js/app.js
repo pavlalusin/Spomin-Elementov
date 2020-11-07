@@ -1,5 +1,8 @@
-// Only deal with chemistry pairs
-const selectedPairs = ALL_PAIRS.kemija;
+// Read URL to see if we should show physics or chemistry
+let params = new URLSearchParams(window.location.search);
+const pairType = params.get("type"); // This is either kemija or fizika
+// Only deal with selected pairs and default to kemija if type is missing
+const selectedPairs = ALL_PAIRS[pairType] || ALL_PAIRS.kemija;
 
 // Set page title
 document.getElementById("title").innerHTML = selectedPairs.title;
