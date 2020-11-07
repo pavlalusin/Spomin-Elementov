@@ -1,0 +1,26 @@
+let ALL_PAIRS = {
+    "title": "Periodni Sistem",
+    "score_icon": "flask",
+    "pairs": [
+        ["H", "Vodik"],
+        ["He", "Helij"],
+        ["Li", "Litij"],
+        ["Be", "Berilij"],
+        ["B", "Bor"],
+        ["C", "Ogljik"],
+        ["N", "Dušik"],
+        ["O", "Kisik"],
+        ["F", "Fluor"],
+        ["Ne", "Neon"],
+        ["Na", "Natrij"],
+        ["Mg", "Magnezij"],
+        ["Al", "Aluminij"],
+        ["Si", "Silicij"],
+        ["P", "Fosfor"],
+        ["S", "Žveplo"],
+        ["Cl", "Klor"],
+        ["Ar", "Argon"],
+        ["K", "Kalij"],
+        ["Ca", "Kalcij"],
+    ]
+}
