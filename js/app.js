@@ -5,23 +5,20 @@ const deck = document.getElementById("card-deck");
 // e.g. <li class="card" type="1">Helij</li>
 const cardTemplate = '<li class="card" type="{type}">{text}</li>';
 
-// Insert all pairs into deck with javascript. Types will be just numbers "0", "1", "2",...
-for (let i = 0; i < ALL_PAIRS.pairs.length; i++) {
+// Insert 10 random pairs into deck with javascript. Types will be just numbers "0", "1", "2",...
+let chosenPairs = ALL_PAIRS.pairs;
+for (let i = 0; i < 10; i++) {
+    chosenPairs = shuffle(chosenPairs);
+    // pop removes and returns last element from array
+    let pair = chosenPairs.pop();
     // Insert first element
-    deck.innerHTML += cardTemplate.replace("{text}", ALL_PAIRS.pairs[i][0]).replace("{type}", i);
+    deck.innerHTML += cardTemplate.replace("{text}", pair[0]).replace("{type}", i);
     // Insert second element
-    deck.innerHTML += cardTemplate.replace("{text}", ALL_PAIRS.pairs[i][1]).replace("{type}", i);
+    deck.innerHTML += cardTemplate.replace("{text}", pair[1]).replace("{type}", i);
 }
 
 // cards array holds all cards
 let card = document.getElementsByClassName("card");
-//delete half cards
-for (let i = 0; i < 10; i++){
-    let n = 2 * Math.floor(Math.random() * card.length / 2);
-    card[n].remove()
-    card[n].remove()
-}
-card = document.getElementsByClassName("card");
 let cards = [...card];
 
 // declaring move variable
