@@ -1,3 +1,7 @@
+// Set page title
+document.getElementById("title").innerHTML = ALL_PAIRS.title;
+document.title = ALL_PAIRS.title;
+
 // deck of all cards in game
 const deck = document.getElementById("card-deck");
 
@@ -25,8 +29,11 @@ let cards = [...card];
 let moves = 0;
 let counter = document.querySelector(".moves");
 
-// declare variables for star icons
-const stars = document.querySelectorAll(".fa-flask");
+// declare variables for star icons and set the correct icon
+const stars = document.getElementsByClassName("star");
+for (let i = 0; i < stars.length; i++) {
+    stars[i].classList.add("fa-" + ALL_PAIRS.score_icon);
+}
 
 // declaring variable of matchedCards
 let matchedCard = document.getElementsByClassName("match");
