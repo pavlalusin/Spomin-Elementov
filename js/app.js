@@ -13,6 +13,12 @@ const deck = document.getElementById("card-deck");
 let chosenPairs = shuffle(selectedPairs.pairs);
 for (let i = 0; i < 10; i++) {
     for (let pair of chosenPairs[i]) { // first and second pair
+        if (pair.length > 10) {
+            // If text is longer than 10 characters make font-size 1% smaller for
+            // every two characters it has.
+            let fontSize = 90 - pair.length/2;
+            pair = `<span style="font-size: ${fontSize}%;">${pair}</span>`;
+        }
         // This HTML definition of a card
         // e.g. <li class="card" type="1">Helij</li>
         deck.innerHTML += `<li class="card" type="${i}">${pair}</li>`;
