@@ -1,3 +1,18 @@
+// deck of all cards in game
+const deck = document.getElementById("card-deck");
+
+// This is how every card should look like. Just replace {type} and {text}
+// e.g. <li class="card" type="1">Helij</li>
+const cardTemplate = '<li class="card" type="{type}">{text}</li>';
+
+// Insert all pairs into deck with javascript. Types will be just numbers "0", "1", "2",...
+for (let i = 0; i < ALL_PAIRS.pairs.length; i++) {
+    // Insert first element
+    deck.innerHTML += cardTemplate.replace("{text}", ALL_PAIRS.pairs[i][0]).replace("{type}", i);
+    // Insert second element
+    deck.innerHTML += cardTemplate.replace("{text}", ALL_PAIRS.pairs[i][1]).replace("{type}", i);
+}
+
 // cards array holds all cards
 let card = document.getElementsByClassName("card");
 //delete half cards
@@ -8,9 +23,6 @@ for (let i = 0; i < 10; i++){
 }
 card = document.getElementsByClassName("card");
 let cards = [...card];
-
-// deck of all cards in game
-const deck = document.getElementById("card-deck");
 
 // declaring move variable
 let moves = 0;
