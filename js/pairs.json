@@ -39,7 +39,7 @@ const ALL_PAIRS = {
         // ["Množina snovi<br>n", "Mol<br>mol"],
         ["Sila<br>F", "Newton<br>N"],
         ["Hitrost<br>v", "m/s"],
-        ["Pospešek‎<br>v", "m/s²"],
+        ["Pospešek‎<br>a", "m/s²"],
         ["Tlak<br>p", "Paskal<br>Pa"],
         ["Prostornina<br>V", "Liter<br>L"],
         ["Gostota<br>ρ", "kg/m³"],
