@@ -14,14 +14,14 @@
 
     <div class="container">
         <header>
-            <h1>Periodni Sistem</h1>
+            <h1 id="title">Periodni Sistem</h1>
         </header>
 
         <section class="score-panel">
         	<ul class="stars">
-        		<li><i class="fa fa-flask"></i></li>
-        		<li><i class="fa fa-flask"></i></li>
-        		<li><i class="fa fa-flask"></i></li>
+        		<li><i class="star fa"></i></li>
+        		<li><i class="star fa"></i></li>
+        		<li><i class="star fa"></i></li>
         	</ul>
 
         	<span class="moves">0</span> Move(s)
@@ -29,55 +29,15 @@
             <div class="timer">
             </div>
 
-            <div class="restart" onclick=startGame()>
+            <div class="restart" onclick="startGame()">
         		<i class="fa fa-repeat"></i>
         	</div>
         </section>
 
         <ul class="deck" id="card-deck">
-            <li class="card" type="vodik">H</li>
-            <li class="card" type="vodik">Vodik</li>
-            <li class="card" type="helij">He</li>
-            <li class="card" type="helij">Helij</li>
-            <li class="card" type="litij">Li</li>
-            <li class="card" type="litij">Litij</li>
-            <li class="card" type="berilij">Be</li>
-            <li class="card" type="berilij">Berilij</li>
-            <li class="card" type="bor">B</li>
-            <li class="card" type="bor">Bor</li>
-            <li class="card" type="ogljik">C</li>
-            <li class="card" type="ogljik">Ogljik</li>
-            <li class="card" type="dusik">N</li>
-            <li class="card" type="dusik">Dušik</li>
-            <li class="card" type="kisik">O</li>
-            <li class="card" type="kisik">Kisik</li>
-            <li class="card" type="fluor">F</li>
-            <li class="card" type="fluor">Fluor</li>
-            <li class="card" type="neon">Ne</li>
-            <li class="card" type="neon">Neon</li>
-            <li class="card" type="natrij">Na</li>
-            <li class="card" type="natrij">Natrij</li>
-            <li class="card" type="magnezij">Mg</li>
-            <li class="card" type="magnezij">Magnezij</li>
-            <li class="card" type="aluminij">Al</li>
-            <li class="card" type="aluminij">Aluminij</li>
-            <li class="card" type="silicij">Si</li>
-            <li class="card" type="silicij">Silicij</li>
-            <li class="card" type="fosfor">P</li>
-            <li class="card" type="fosfor">Fosfor</li>
-            <li class="card" type="zveplo">S</li>
-            <li class="card" type="zveplo">Žveplo</li>
-            <li class="card" type="klor">Cl</li>
-            <li class="card" type="klor">Klor</li>
-            <li class="card" type="argon">Ar</li>
-            <li class="card" type="argon">Argon</li>
-            <li class="card" type="kalij">K</li>
-            <li class="card" type="kalij">Kalij</li>
-            <li class="card" type="kalcij">Ca</li>
-            <li class="card" type="kalcij">Kalcij</li>
-            <!-- <li class="card" type="damson"><img src="img/damson.png" height="100%" width="100%"></li> -->
-            <!-- <li class="card" type="hazelnut"><img src="img/hazelnut.png" height="100%" width="100%"></li> -->
-            <!-- <li class="card" type="nettle"><img src="img/nettle.png" height="100%" width="100%"></li>   -->
+            <!-- This will be filled from javascript. And will look like below: -->
+            <!-- <li class="card" type="0">H</li> -->
+            <!-- <li class="card" type="0">Vodik</li> -->
         </ul>
 
         <div id="popup1" class="overlay">
@@ -85,7 +45,7 @@
                 <h2>Bravo!</h2>
                 <a class="close" href=# >×</a>
                 <div class="content-1">
-                    Upelo vam je najti vse elemente.
+                    Upelo vam je najti vse pare.
                 </div>
                 <div class="content-2">
                     <p>Za to ste porabili <span id=finalMove> </span> potez</p>
@@ -93,12 +53,18 @@
                     <p>Ocena:  <span id=starRating></span></p>
                 </div>
                 <button id="play-again"onclick="location.reload()">
-                    Nova igra</a>
+                    Nova igra
                 </button>
             </div>
         </div>
 
+        <div>
+            <h2>Več iger</h2>
+            <a href="?type=kemija">Kemija</a>
+            <a href="?type=fizika">Fizika</a>
+        </div>
     </div>
+    <script src="js/pairs.json"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

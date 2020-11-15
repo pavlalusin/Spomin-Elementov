@@ -1,23 +1,46 @@
-// cards array holds all cards
-let card = document.getElementsByClassName("card");
-//delete half cards
-for (let i = 0; i < 10; i++){
-    let n = 2 * Math.floor(Math.random() * card.length / 2);
-    card[n].remove()
-    card[n].remove()
-}
-card = document.getElementsByClassName("card");
-let cards = [...card];
+// Read URL to see if we should show physics or chemistry
+let params = new URLSearchParams(window.location.search);
+const pairType = params.get("type"); // This is either kemija or fizika
+// Only deal with selected pairs and default to kemija if type is missing
+const selectedPairs = ALL_PAIRS[pairType] || ALL_PAIRS.kemija;
+
+// Set page title
+document.getElementById("title").innerHTML = selectedPairs.title;
+document.title = selectedPairs.title;
 
 // deck of all cards in game
 const deck = document.getElementById("card-deck");
+
+// Shuffle list of pairs and insert first 10 random pairs
+// into deck with javascript. Types will be just numbers "0", "1", "2",...
+let chosenPairs = shuffle(selectedPairs.pairs);
+for (let i = 0; i < 10; i++) {
+    for (let pair of chosenPairs[i]) { // first and second pair
+        if (pair.length > 10) {
+            // If text is longer than 10 characters make font-size 1% smaller for
+            // every two characters it has.
+            let fontSize = 90 - pair.length/2;
+            pair = `<span style="font-size: ${fontSize}%;">${pair}</span>`;
+        }
+        // This HTML definition of a card
+        // e.g. <li class="card" type="1">Helij</li>
+        deck.innerHTML += `<li class="card" type="${i}">${pair}</li>`;
+    }
+}
+
+// cards array holds all cards
+let card = document.getElementsByClassName("card");
+let cards = [...card];
 
 // declaring move variable
 let moves = 0;
 let counter = document.querySelector(".moves");
 
-// declare variables for star icons
-const stars = document.querySelectorAll(".fa-flask");
+// declare variables for star icons and set the correct icon
+const stars = document.getElementsByClassName("star");
+for (let i = 0; i < stars.length; i++) {
+    stars[i].classList.add("fa-" + selectedPairs.score_icon);
+}
 
 // declaring variable of matchedCards
 let matchedCard = document.getElementsByClassName("match");
